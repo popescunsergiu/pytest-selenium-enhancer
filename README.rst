@@ -45,7 +45,11 @@ Contributing
 
 We welcome contributions.
 
-To learn more, see `Contributing <https://github.com/pytest-dev/pytest-selenium-enhancer/blob/master/.github/CONTRIBUTING.rst>`_
+To learn more, see Contributing_
+
+E2E testing is brought to you by BrowserStack_.
+
+.. image:: https://github.com/popescunsergiu/pytest-selenium-enhancer/blob/master/.github/BrowserStack-logo.svg
 
 Resources
 =========
@@ -55,6 +59,10 @@ Resources
 - Code_
 
 .. _pytest: http://pytest.org
+
+.. _Contributing: https://github.com/pytest-dev/pytest-selenium-enhancer/blob/master/.github/CONTRIBUTING.rst
+.. _BrowserStack: https://browserstack.com
+
 .. _Release Notes:  https://github.com/popescunsergiu/pytest-selenium-enhancer/blob/master/CHANGES.rst
 .. _Issue Tracker: https://github.com/popescunsergiu/pytest-selenium-enhancer/issues
 .. _Code: https://github.com/popescunsergiu/pytest-selenium-enhancer
