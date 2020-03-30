@@ -137,14 +137,14 @@ def add_custom_commands():
         previous = None
         i = 1
 
-        __elements_to_hide(selenium, elements_to_hide['all'])
+        __hide_elements(selenium, elements_to_hide['all'])
         for rectangle in rectangles:
-            if i == 0:
-                __elements_to_hide(selenium, elements_to_hide['end'])
+            if i == 1 != rectangles.__len__():
+                __hide_elements(selenium, elements_to_hide['bottom'])
             if rectangle[1] != 0:
-                __elements_to_hide(selenium, elements_to_hide['start'])
+                __hide_elements(selenium, elements_to_hide['top'])
             if i == rectangles.__len__():
-                __show_elements(selenium, elements_to_hide['end'])
+                __show_elements(selenium, elements_to_hide['bottom'])
             if previous is not None:
                 selenium.execute_script("window.scrollTo({0}, {1})".format(round(rectangle[0] / device_pixel_ratio),
                                                                            round(rectangle[1] / device_pixel_ratio)))
@@ -190,7 +190,7 @@ def add_custom_commands():
             except WebDriverException as error:
                 print('Error : ', str(error))
 
-    def __elements_to_hide(selenium, elements):
+    def __hide_elements(selenium, elements):
         """
         Usage:
             Hide elements from web page
