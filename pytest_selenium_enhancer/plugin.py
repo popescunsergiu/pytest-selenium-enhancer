@@ -2,7 +2,7 @@
 
 import pytest
 
-from pytest_selenium_enhancer.pytest_selenium_enhancer import add_custom_commands
+from .pytest_selenium_enhancer import add_custom_commands
 
 
 @pytest.fixture(scope='session')
