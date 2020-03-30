@@ -20,7 +20,7 @@ setup(
         "selenium>=3.141.0"
     ],
     entry_points={
-        "pytest11": ["pytest-selenium-enhancer = pytest_selenium_enhancer",]
+        "pytest11": ["pytest-selenium-enhancer = pytest_selenium_enhancer.plugin"]
     },
     setup_requires=["setuptools_scm"],
     license="MIT License",
