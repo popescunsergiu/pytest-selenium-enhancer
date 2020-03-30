@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="pytest_selenium_enhancer",
+    name="pytest-selenium-enhancer",
     use_scm_version=True,
     description="pytest plugin for Selenium",
     long_description=open("README.rst").read(),
@@ -20,9 +20,7 @@ setup(
         "selenium>=3.141.0"
     ],
     entry_points={
-        "pytest11": [
-            "pytest-selenium-enhancer = pytest-selenium-enhancer.plugin",
-        ]
+        "pytest11": ["pytest-selenium-enhancer = pytest_selenium_enhancer.plugin"]
     },
     setup_requires=["setuptools_scm"],
     license="MIT License",
