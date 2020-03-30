@@ -1,0 +1,14 @@
+{
+  "capabilities": {
+    "browserName": "android",
+    "browserstack.debug": false,
+    "browserstack.local": "true",
+    "browserstack.localIdentifier": "local_01",
+    "browserstack.timezone": "UTC",
+    "device": "Samsung Galaxy S10 Plus",
+    "deviceOrientation": "portrait",
+    "os_version": "9.0",
+    "realMobile": true,
+    "resolution": "1920x1080"
+  }
+}

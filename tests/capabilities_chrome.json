@@ -1,0 +1,14 @@
+{
+  "capabilities": {
+    "browserName": "chrome",
+    "browserstack.debug": false,
+    "browserstack.local": "true",
+    "browserstack.localIdentifier": "local_02",
+    "browserstack.timezone": "UTC",
+    "deviceOrientation": "landscape",
+    "os": "Windows",
+    "os_version": "10",
+    "realMobile": true,
+    "resolution": "1920x1080"
+  }
+}

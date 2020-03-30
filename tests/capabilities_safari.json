@@ -1,0 +1,14 @@
+{
+  "capabilities": {
+    "browserName": "safari",
+    "browserstack.debug": false,
+    "browserstack.local": "true",
+    "browserstack.localIdentifier": "local_06",
+    "browserstack.timezone": "UTC",
+    "deviceOrientation": "landscape",
+    "os": "OS X",
+    "os_version": "Catalina",
+    "realMobile": true,
+    "resolution": "1920x1080"
+  }
+}

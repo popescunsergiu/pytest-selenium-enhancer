@@ -1,0 +1,15 @@
+{
+  "capabilities": {
+    "browserName": "iPhone",
+    "browserstack.debug": false,
+    "browserstack.local": "true",
+    "browserstack.localIdentifier": "local_05",
+    "browserstack.timezone": "UTC",
+    "device": "iPhone 11 Pro",
+    "deviceOffset": 284,
+    "deviceOrientation": "portrait",
+    "os_version": "13",
+    "realMobile": true,
+    "resolution": "1920x1080"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "capabilities": {
+    "browserName": "firefox",
+    "browserstack.debug": false,
+    "browserstack.local": "true",
+    "browserstack.localIdentifier": "local_04",
+    "browserstack.timezone": "UTC",
+    "deviceOrientation": "landscape",
+    "os": "Windows",
+    "os_version": "10",
+    "realMobile": true,
+    "resolution": "1920x1080"
+  }
+}
