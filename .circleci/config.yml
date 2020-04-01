@@ -39,7 +39,7 @@ jobs: # a collection of steps
           command: |
             cd tests
             pip install -r requirements.txt
-      -run:
+      - run:
           name: # run tests
           command: |
             ./scripts/BrowserStackLocal_linux  --daemon start --key ${BROWSERSTACK_KEY} --local-identifier local_02
