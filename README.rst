@@ -303,7 +303,7 @@ To learn more, see Contributing_
 
 E2E testing is brought to you by BrowserStack_.
 
-.. image:: https://github.com/popescunsergiu/pytest-selenium-enhancer/blob/master/.github/BrowserStack-logo.png
+.. image:: https://github.com/popescunsergiu/pytest-selenium-enhancer/raw/master/.github/BrowserStack-logo.png
     :alt: BrowserStack
     :target: https://browserstack.com
 
