@@ -2,14 +2,14 @@ from setuptools import setup
 
 setup(
     name="pytest-selenium-enhancer",
-    version='1.3.0',
-    use_scm_version=True,
+    version='1.4.0',
+    use_scm_version=False,
     description="pytest plugin for Selenium",
     long_description=open("README.rst").read(),
     author="Sergiu Popescu",
     author_email="popescunsergiu@gmail.com",
     url="https://github.com/popescunsergiu/pytest-selenium-enhancer",
-    download_url="https://github.com/popescunsergiu/pytest-selenium-enhancer/archive/v1.3.tar.gz",
+    download_url="https://github.com/popescunsergiu/pytest-selenium-enhancer/archive/v1.4.tar.gz",
     packages=["pytest_selenium_enhancer"],
     install_requires=[
         "numpy",
