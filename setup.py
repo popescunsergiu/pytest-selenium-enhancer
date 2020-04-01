@@ -9,6 +9,7 @@ setup(
     author="Sergiu Popescu",
     author_email="popescunsergiu@gmail.com",
     url="https://github.com/popescunsergiu/pytest-selenium-enhancer",
+    download_url="https://github.com/popescunsergiu/pytest-selenium-enhancer/archive/v1.1.tar.gz",
     packages=["pytest_selenium_enhancer"],
     install_requires=[
         "numpy",
