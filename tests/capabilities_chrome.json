@@ -2,7 +2,7 @@
   "capabilities": {
     "browserName": "chrome",
     "browserstack.debug": false,
-    "browserstack.local": "true",
+    "browserstack.local": false,
     "browserstack.localIdentifier": "local_02",
     "browserstack.timezone": "UTC",
     "deviceOrientation": "landscape",

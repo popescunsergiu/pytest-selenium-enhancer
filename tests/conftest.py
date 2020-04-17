@@ -6,8 +6,6 @@
 """Configuration for pytest runner."""
 import pytest
 
-from browserstack.local import Local
-
 from tests.utils.env_variables import EnvVariables
 
 pytest_plugins = ["pytester"]
@@ -15,7 +13,7 @@ bs_local = None
 
 
 def pytest_addoption(parser):
-    parser.addoption("--baseUrl", action="store", help="Base URL")
+    parser.addoption("--base-url", action="store", help="Base URL")
 
 
 @pytest.fixture(scope="function")
@@ -31,7 +29,7 @@ def driver(variables, env_variables, selenium_patcher):
 
 @pytest.fixture
 def base_url(request):
-    return request.config.getoption("--baseUrl")
+    return request.config.getoption("--base-url")
 
 
 @pytest.fixture(scope='session')
