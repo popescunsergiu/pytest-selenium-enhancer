@@ -1,7 +1,5 @@
 """Pytest plugin entry point. Used for any fixtures needed."""
-
 import pytest
-
 from .pytest_selenium_enhancer import add_custom_commands
 
 

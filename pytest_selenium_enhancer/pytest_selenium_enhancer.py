@@ -8,7 +8,6 @@ import base64
 from io import BytesIO
 import cv2
 import numpy
-import pytest
 from PIL import Image
 from selenium.common.exceptions import WebDriverException
 
@@ -16,6 +15,69 @@ from selenium.common.exceptions import WebDriverException
 def add_custom_commands():
     from selenium.webdriver.remote.webdriver import WebDriver
     from selenium.webdriver.remote.webelement import WebElement
+
+    @add_method(WebDriver)
+    def shadow_find_element(self, css_selector):
+        """Returns an element by given CSS selector
+
+            Returns:
+            WebElement: returns the element as WebElement
+        """
+        return self.execute_script('return document.shadowRoot.querySelector(arguments[0])', css_selector)
+
+    @add_method(WebElement)
+    def shadow_find_element(self, css_selector):
+        """Returns an element by given CSS selector
+
+            Returns:
+            WebElement: returns the element as WebElement
+        """
+        return self.parent.execute_script('return arguments[0].shadowRoot.querySelector(arguments[1])', self,
+                                          css_selector)
+
+    @add_method(WebDriver)
+    def shadow_cascade_find_element(self, *args):
+        """Returns an element by given list of CSS selectors
+
+            Returns:
+            WebElement: returns the element as WebElement
+        """
+        script = 'return document'
+        for arg in args:
+            script += '.querySelector("%s").shadowRoot' % arg
+        script = script[:-11] + ';'
+        return self.execute_script(script)
+
+    @add_method(WebElement)
+    def shadow_cascade_find_element(self, *args):
+        """Returns an element by given list of CSS selectors
+
+            Returns:
+            WebElement: returns the element as WebElement
+        """
+        script = 'return %s' % self
+        for arg in args:
+            script += '.shadowRoot.querySelector("%s")' % arg
+        return self.parent.execute_script(script)
+
+    @add_method(WebDriver)
+    def shadow_find_elements(self, css_selector):
+        """Returns a list of elements by given of CSS selector
+
+            Returns:
+            list<WebElement>: returns the element as WebElement
+        """
+        return self.execute_script('return document.shadowRoot.querySelectorAll(arguments[0])', css_selector)
+
+    @add_method(WebElement)
+    def shadow_find_elements(self, css_selector):
+        """Returns a list of elements by given of CSS selector
+
+            Returns:
+            list<WebElement>: returns the element as WebElement
+        """
+        return self.parent.execute_script('return arguments[0].shadowRoot.querySelectorAll(arguments[1])', self,
+                                          css_selector)
 
     @add_method(WebDriver)
     def get_full_page_screenshot_as_base64(self, elements_to_hide=None, ios_offset=0):
@@ -46,72 +108,7 @@ def add_custom_commands():
         stitched_image.save(image_path)
         return cv2.imread(image_path)
 
-    @add_method(WebDriver)
-    def shadow_find_element(self, css_selector):
-        """Returns an element by given CSS selector
-
-            Returns:
-            WebElement: returns the element as WebElement
-        """
-        return self.execute_script('return document.shadowRoot.querySelector(arguments[0])', css_selector)
-
-    @add_method(WebDriver)
-    def shadow_cascade_find_element(self, *args):
-        """Returns an element by given list of CSS selectors
-
-            Returns:
-            WebElement: returns the element as WebElement
-        """
-        script = 'return document'
-        for arg in args:
-            script += '.querySelector("%s").shadowRoot' % arg
-        script = script[:-11] + ';'
-        return self.execute_script(script)
-
-    @add_method(WebDriver)
-    def shadow_find_elements(self, css_selector):
-        """Returns a list of elements by given of CSS selector
-
-            Returns:
-            list<WebElement>: returns the element as WebElement
-        """
-        return self.execute_script('return document.shadowRoot.querySelectorAll(arguments[0])', css_selector)
-
-    @add_method(WebElement)
-    def shadow_find_element(self, css_selector):
-        """Returns an element by given CSS selector
-
-            Returns:
-            WebElement: returns the element as WebElement
-        """
-        return self.parent.execute_script('return arguments[0].shadowRoot.querySelector(arguments[1])', self,
-                                          css_selector)
-
-    @add_method(WebElement)
-    def shadow_cascade_find_element(self, *args):
-        """Returns an element by given list of CSS selectors
-
-            Returns:
-            WebElement: returns the element as WebElement
-        """
-        script = 'return %s' % self
-        for arg in args:
-            script += '.shadowRoot.querySelector("%s")' % arg
-        return self.parent.execute_script(script)
-
-    @add_method(WebElement)
-    def shadow_find_elements(self, css_selector):
-        """Returns a list of elements by given of CSS selector
-
-            Returns:
-            list<WebElement>: returns the element as WebElement
-        """
-        return self.parent.execute_script('return arguments[0].shadowRoot.querySelectorAll(arguments[1])', self,
-                                          css_selector)
-
     def __take_full_page_screenshot(selenium, elements_to_hide, ios_offset=0):
-        if elements_to_hide is None:
-            elements_to_hide = {"start": [], "all": [], "end": []}
         device_pixel_ratio = selenium.execute_script('return ratio = window.devicePixelRatio || 1;')
         total_width = round(
             selenium.execute_script("return document.body.scrollWidth * arguments[0];", device_pixel_ratio))
