@@ -8,7 +8,6 @@ import base64
 from io import BytesIO
 import cv2
 import numpy
-import pytest
 from PIL import Image
 from selenium.common.exceptions import WebDriverException
 
