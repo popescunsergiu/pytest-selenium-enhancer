@@ -169,15 +169,15 @@ get_full_page_screenshot_as_base64 WebDriver
         :header: "Name", "Type", "Details"
         :widths: 20, 30, 50
 
-        "selectors", "(obj)", "{'top': [sticky top elements that you want to hide after first horizontal scroll], 'all':[elements that you want to completely hide], 'bottom': [sticky bottom elements that you want to show only after first horizontal scroll]}"
+        "elements_to_hide", "(obj)", "{'top': [sticky top elements that you want to hide after first horizontal scroll], 'all':[elements that you want to completely hide], 'bottom': [sticky bottom elements that you want to show only after first horizontal scroll]}"
         "device_offset", "(int)", "iOS only. Used to define the height of the browser upper controls. Safari iOS browser controls are part of the screenshot taken by selenium so we want not to have them into a full page screenshot"
 
     *Example*
     .. code-block::
 
         elements_to_hide = {
-            "start": [self.get_header()._banner] if self.page_name is 'home_page' else None,
-            "all": None,
+            "start": [self.get_header()._banner] if self.page_name is 'home_page'] else [],
+            "all": [],
             "end": [self.get_persistent_isi()._component_container]
         }
         browser.get_full_page_screenshot_as_base64(elements_to_hide, 284)
@@ -191,7 +191,7 @@ get_full_page_screenshot_as_png WebDriver
     *Usage*
     .. code-block::
 
-        browser.get_full_page_screenshot_as_png(elements_to_hide, device_offset)
+        browser.get_full_page_screenshot_as_png(image_path, elements_to_hide, device_offset)
 
     *Parameters*
     .. csv-table::
@@ -199,18 +199,19 @@ get_full_page_screenshot_as_png WebDriver
         :header: "Name", "Type", "Details"
         :widths: 20, 30, 50
 
-        "selectors", "(obj)", "{'top': [sticky top elements that you want to hide after first horizontal scroll], 'all':[elements that you want to completely hide], 'bottom': [sticky bottom elements that you want to show only after first horizontal scroll]}"
+        "image_path", "(str)", "Full path of the location to where to save the screenshot"
+        "elements_to_hide", "(obj)", "{'top': [sticky top elements that you want to hide after first horizontal scroll], 'all':[elements that you want to completely hide], 'bottom': [sticky bottom elements that you want to show only after first horizontal scroll]}"
         "device_offset", "(int)", "iOS only. Used to define the height of the browser upper controls. Safari iOS browser controls are part of the screenshot taken by selenium so we want not to have them into a full page screenshot"
 
     *Example*
     .. code-block::
 
         elements_to_hide = {
-            "start": [self.get_header()._banner] if self.page_name is 'home_page' else None,
-            "all": None,
+            "start": [self.get_header()._banner] if self.page_name is 'home_page'] else [],
+            "all": [],
             "end": [self.get_persistent_isi()._component_container]
         }
-        browser.get_full_page_screenshot_as_png(elements_to_hide, 284)
+        browser.get_full_page_screenshot_as_png(image_path, elements_to_hide, 284)
 
 Build in remote.WebElement Custom Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
