@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="pytest-selenium-enhancer",
-    version='1.4.2',
+    version='1.5.0',
     use_scm_version=False,
     description="pytest plugin for Selenium",
     long_description=open("README.rst").read(),
