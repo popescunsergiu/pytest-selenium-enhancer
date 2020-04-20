@@ -2,7 +2,7 @@
 Contributing
 ************
 
-To contribute to *pytest-variables* you can use `Pipenv`_ to manage a python virtual environment
+To contribute to *pytest-selenium-enhancer* you can use `Pipenv`_ to manage a python virtual environment
 TODO
 
 Submitting a Pull Request
