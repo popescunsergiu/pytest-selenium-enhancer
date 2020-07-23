@@ -93,10 +93,11 @@ def add_custom_commands():
             Returns:
             WebElement: returns the element as WebElement
         """
-        script = 'return %s' % self
+        script = 'return arguments[0].shadowRoot'
         for arg in args:
-            script += '.shadowRoot.querySelector("%s")' % arg
-        return self.parent.execute_script(script)
+            script += '.querySelector("%s").shadowRoot' % arg
+        script = script[:-11] + ';'
+        return self.parent.execute_script(script, self)
 
     @add_method(WebElement)
     def shadow_find_elements(self, css_selector):
