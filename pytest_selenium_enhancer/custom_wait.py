@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
-import custom_expected_conditions as CEC
+import pytest_selenium_enhancer.custom_expected_conditions as CEC
 
 
 class CustomWait:
