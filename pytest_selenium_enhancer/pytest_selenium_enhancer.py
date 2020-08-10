@@ -165,13 +165,12 @@ def add_custom_commands():
                 offset = (total_width - viewport_width, rectangle[1])
             elif viewport_height < total_height < rectangle[1] + viewport_height:
                 offset = (rectangle[0], total_height - viewport_height)
-            # screenshot.save('/Users/spopescu/PersonalDev/pytest-selenium-enhancer/tests/screenshots/actual/a.png')
-            # stitched_image.save('/Users/spopescu/PersonalDev/pytest-selenium-enhancer/tests/screenshots/actual/b.png')
             stitched_image.paste(screenshot, offset)
             del screenshot
             previous = rectangle
             i += 1
 
+        stitched_image = stitched_image.resize((int(stitched_image.width * 0.5), int(stitched_image.height * 0.5)))
         return stitched_image
 
     def __show_elements(selenium, elements):
