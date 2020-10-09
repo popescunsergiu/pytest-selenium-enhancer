@@ -170,7 +170,9 @@ def add_custom_commands():
             previous = rectangle
             i += 1
 
-        stitched_image = stitched_image.resize((int(stitched_image.width * 0.5), int(stitched_image.height * 0.5)))
+        if stitched_image.height > 14000:
+            qrf = 14000 / stitched_image.height
+            stitched_image = stitched_image.resize((int(stitched_image.width * qrf), int(stitched_image.height * qrf)))
         return stitched_image
 
     def __show_elements(selenium, elements):
