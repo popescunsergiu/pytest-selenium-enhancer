@@ -190,7 +190,7 @@ def add_custom_commands():
         if elements is not None:
             try:
                 for element in elements:
-                    selenium.execute_script("arguments[0].setAttribute('style', 'opacity:1;');", element)
+                    selenium.execute_script("arguments[0].setAttribute('style', arguments[0].getAttribute('style')+'; opacity:1;');", element)
             except WebDriverException as error:
                 print('Error : ', str(error))
 
@@ -209,7 +209,7 @@ def add_custom_commands():
         if elements is not None:
             try:
                 for element in elements:
-                    selenium.execute_script("arguments[0].setAttribute('style', 'opacity:0;');", element)
+                    selenium.execute_script("arguments[0].setAttribute('style', arguments[0].getAttribute('style')+'; opacity:0;');", element)
             except WebDriverException as error:
                 print('Error : ', str(error))
 
