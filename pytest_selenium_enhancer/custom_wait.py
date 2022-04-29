@@ -28,14 +28,10 @@ class CustomWait:
         return wait.until(EC.visibility_of_element_located((by, value)))
 
     def wait_for_element_not_visible(self, by=By.XPATH, value=None, text=None, timeout=60):
-        sleep(2)
         if text is not None:
             value = value % text
         wait = WebDriverWait(self.driver, timeout)
-        self.driver.implicitly_wait(timeout)
         result = wait.until(EC.invisibility_of_element_located((by, value)))
-        # pylint: disable=no-member
-        self.driver.implicitly_wait(self.implicit_wait)
         return result
 
     def wait_for_element_clickable(self, by=By.XPATH, value=None, text=None, timeout=60):
